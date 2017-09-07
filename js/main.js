@@ -24,4 +24,21 @@ salvarBtn.addEventListener("click", function(event) {
 
     pessoaTr.appendChild(nomeTd);
     pessoaTr.appendChild(profissaoTd);
+
+    var editarBtn = document.createElement("button");
+    editarBtn.id = "editarBtn";
+    editarBtn.textContent = "Editar";
+    var editarTd = document.createElement("td");
+
+    editarTd.appendChild(editarBtn);
+    pessoaTr.appendChild(editarTd);
+
+
+    var removerBtn = document.createElement("button");
+    removerBtn.id = "removerBtn";
+    removerBtn.textContent = "Remover";
+    var removerTd = document.createElement("td");
+
+    removerTd.appendChild(removerBtn);
+    pessoaTr.appendChild(removerTd);
 })
