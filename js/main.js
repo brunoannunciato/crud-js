@@ -17,7 +17,7 @@ salvarBtn.addEventListener("click", function(event) {
     var nomeEdit = document.createElement("input");
     nomeEdit.setAttribute("type", "text");
     nomeEdit.setAttribute("value", nome);
-    nomeEdit.classList.add("editar-off");
+    nomeEdit.classList.add("remove");
     nomeEdit.id = "nomeEdit";
 
     var formProfissao = document.querySelector("#formProfissao"),
@@ -28,8 +28,8 @@ salvarBtn.addEventListener("click", function(event) {
     var profissaoEdit = document.createElement("input");
     profissaoEdit.setAttribute("type", "text");
     profissaoEdit.setAttribute("value", profissao);
-    profissaoEdit.classList.add("editar-off");
-    profissaoEdit.id = profissaoEdit;
+    profissaoEdit.classList.add("remove");
+    profissaoEdit.id = "profissaoEdit";
     
 
     pessoaTr.appendChild(nomeTd);
@@ -62,23 +62,38 @@ salvarBtn.addEventListener("click", function(event) {
     })
 
     editarBtn.addEventListener("click", function(){
-        nomeEdit.classList.remove("editar-off");
-        nomeEdit.classList.add("editar-on");
+        nomeEdit.classList.remove("remove");
+        nomeEdit.classList.add("add");
         nomeTd.textContent = "";
         nomeTd.appendChild(nomeEdit);
 
-        profissaoEdit.classList.remove("editar-off");
-        profissaoEdit.classList.add("editar-on");
+        profissaoEdit.classList.remove("remove");
+        profissaoEdit.classList.add("add");
         profissaoTd.textContent ="";
         profissaoTd.appendChild(profissaoEdit);
 
-        editarBtn.classList.add("editar-off");
+        this.classList.add("remove");
         var salvarBtn = document.createElement("button");
         salvarBtn.id = "salvarBtn";
         salvarBtn.textContent = "Salvar";
         editarTd.appendChild(salvarBtn);
 
+        salvarBtn.addEventListener("click", function(){
+            this.classList.add("remove");
+            editarBtn.classList.add("add");
 
+            var nomeEditado = document.querySelector("#nomeEdit").value;
+            nomeEdit.classList.remove("add");
+            nomeEdit.classList.add("remove");
+            var nome = nomeEditado;
+            nomeTd.textContent = nome;
 
+            var profissaoEditada = document.querySelector("#profissaoEdit").value;
+            profissaoEdit.classList.remove("add");
+            profissaoEdit.classList.add("remove");
+            var profissao = profissaoEditada;
+            profissaoTd.textContent = profissao;
+
+        });
     });
-})
+});

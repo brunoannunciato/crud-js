@@ -21,10 +21,10 @@ body{
 	transition: .5s;
 }
 
-.editar-off {
+.remove {
 	display: none;
 }
 
-.editar-on{
+.add{
 	display: block;
 }
